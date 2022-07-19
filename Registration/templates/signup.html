@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        body{
+            background : url({% static 'signup.jpg' %})
+        }
+        h3 {
+            font-family: Times New Roman;
+            color: hsl(0deg 0% 100% / 87%);
+            font-size: xxx-large;
+        }
+        label {
+
+            color: hsl(0deg 0% 100% / 87%);
+            font-weight: initial;
+            width: 150px;
+            display: inline;
+            padding: 20px;
+            font-size: 45px;
+            
+        }
+        label:after{ content:":" }
+        input{
+            font-size: 40px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 8px 30px;
+            background-color: #0000f47d;
+        }
+        ::placeholder{
+            color:black;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        button{
+            padding: 12px 28px;
+            font-size: 24px;
+            color: black;
+            border-radius: 10px;
+            margin-top: 50px;
+            background-color: #0000ff61;
+            outline: 2px solid #00000099;
+        }
+
+        button:hover{
+            background-color: green;
+            
+        }
+        h2{
+            font-family: Times New Roman;
+            color: hsl(0deg 0% 100% / 87%);
+            font-size: xxx-large;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+        <h3>SignUp</h3>
+        <h2> {{ params }} </h2>
+        <form action='/handlesignup' method="POST" class='box'>
+            {% csrf_token%}
+    
+            <label for="fname">FirstName<label>
+            <input type='text' name='fname' id="fname" placeholder='Numbers and Special characters not allowed'><br>
+            <label for="lname">LastName</label>
+            <input type='text' name='lname' id="lname" placeholder='Numbers and Special characters not allowed'><br>
+            <label for="username">UserName</label>
+            <input type='text' name='username' id="username" placeholder='Numbers and Special characters not allowed'><br>
+            <label for="email">EmailID</label>
+            <input type='email' name='email' id="email" placeholder='Enter Your EmailID'><br>
+            <label for="pass1">Password</label>
+            <input type='password' name='pass1' id="pass1" placeholder=' Password must be minimum 8 and maximum 20 characters and should contain atleast 1 upper case and 1 lower case letter and 1 special character '><br>
+            <label for="pass2">Confirm Password</label>
+            <input type='password' name='pass2' id="pass2" placeholder='Rewrite password to Confirm '><br>
+        </form>
+            <button type="submit" name="su">Submit</button>  
+        </center>
+    
+</body>
+</html>
